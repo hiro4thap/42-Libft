@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hiono <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 19:56:08 by hiono             #+#    #+#             */
-/*   Updated: 2024/01/30 19:56:12 by hiono            ###   ########.fr       */
+/*   Created: 2024/03/08 20:00:32 by hiono             #+#    #+#             */
+/*   Updated: 2024/03/08 22:19:41 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	if (*lst == NULL)
 	{
-		if (s1[i] != s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
-		i++;
+		*lst = new;
+		return ;
 	}
-	return (0);
+	tmp = *lst;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = new;
 }
-/*
-int	main(void)
-{
-	char	string1[] = "abcdef";
-	char	string2[] = "abcd";
-	int	i = ft_strcmp(string1, string2);
-	int j = strcmp(string1, string2);
-	printf("%d, %d", i, j);
-}
-*/

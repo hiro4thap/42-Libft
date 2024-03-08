@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiono <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:20:25 by hiono             #+#    #+#             */
-/*   Updated: 2024/01/26 15:01:58 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/08 15:12:37 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
 	int		i;
 	char	*ptr;
@@ -26,13 +26,3 @@ int	ft_strlen(char *str)
 	}
 	return (i);
 }
-/*
-int	main(void)
-{
-	char	strings[] = "Hello!";
-	int	i;
-
-	i = ft_strlen(strings);
-	printf("number of letters:%d", i);
-}
-*/

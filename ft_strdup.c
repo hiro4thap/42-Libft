@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 11:27:41 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 15:27:28 by hiono            ###   ########.fr       */
+/*   Created: 2024/02/08 13:46:20 by hiono             #+#    #+#             */
+/*   Updated: 2024/03/08 12:23:24 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
+static char	*ft_strcpy(char *dest, char *src)
 {
-	size_t	i;
-	size_t	lsrc;
+	int	i;
 
 	i = 0;
-	lsrc = ft_strlen(src);
-	if (size == 0)
-	{
-		return (lsrc);
-	}
-	while (i < size - 1 && i < lsrc)
+	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (lsrc);
+	dest[i] = src[i];
+	return (dest);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*ptr;
+
+	ptr = malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (ptr == NULL)
+		return (NULL);
+	ptr = ft_strcpy(ptr, src);
+	return (ptr);
 }

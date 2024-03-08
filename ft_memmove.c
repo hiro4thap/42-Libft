@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 11:27:41 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 15:27:28 by hiono            ###   ########.fr       */
+/*   Created: 2024/03/05 09:54:11 by hiono             #+#    #+#             */
+/*   Updated: 2024/03/08 15:27:00 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
-	size_t	lsrc;
+	char	*tmp;
 
 	i = 0;
-	lsrc = ft_strlen(src);
-	if (size == 0)
+	tmp = malloc(sizeof(char) * len);
+	while (i < len)
 	{
-		return (lsrc);
-	}
-	while (i < size - 1 && i < lsrc)
-	{
-		dest[i] = src[i];
+		tmp[i] = ((char *)src)[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (lsrc);
+	i = 0;
+	while (i < len)
+	{
+		((char *)dst)[i] = tmp[i];
+		i++;
+	}
+	free(tmp);
+	return (dst);
 }

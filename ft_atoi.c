@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 11:27:41 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 15:27:28 by hiono            ###   ########.fr       */
+/*   Created: 2024/02/02 09:31:52 by hiono             #+#    #+#             */
+/*   Updated: 2024/03/08 17:55:41 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
+int	ft_atoi(char *str)
 {
-	size_t	i;
-	size_t	lsrc;
+	int	pn;
+	int	res;
 
-	i = 0;
-	lsrc = ft_strlen(src);
-	if (size == 0)
+	pn = 1;
+	res = 0;
+	while ((9 <= *str && *str <= 13) || *str == 32)
 	{
-		return (lsrc);
+		str++;
 	}
-	while (i < size - 1 && i < lsrc)
+	if (*str == '+')
+		str++;
+	else if (*str == '-')
 	{
-		dest[i] = src[i];
-		i++;
+		pn *= -1;
+		str++;
 	}
-	dest[i] = '\0';
-	return (lsrc);
+	while ('0' <= *str && *str <= '9')
+	{
+		res = res * 10 + *str - '0';
+		str++;
+	}
+	return (pn * res);
 }
