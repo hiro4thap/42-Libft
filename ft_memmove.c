@@ -6,7 +6,7 @@
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 09:54:11 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 15:27:00 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 22:14:25 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,28 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	char	*tmp;
+	char		*cdst;
+	const char	*csrc;
 
-	i = 0;
-	tmp = malloc(sizeof(char) * len);
-	while (i < len)
+	cdst = (char *)dst;
+	csrc = (const char *)src;
+	if (cdst < csrc)
 	{
-		tmp[i] = ((char *)src)[i];
-		i++;
+		while (0 < len)
+		{
+			*cdst++ = *csrc++;
+			len--;
+		}
 	}
-	i = 0;
-	while (i < len)
+	else if (csrc < cdst)
 	{
-		((char *)dst)[i] = tmp[i];
-		i++;
+		cdst += len - 1;
+		csrc += len - 1;
+		while (0 < len)
+		{
+			*cdst-- = *csrc--;
+			len--;
+		}
 	}
-	free(tmp);
 	return (dst);
 }

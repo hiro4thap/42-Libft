@@ -6,7 +6,7 @@
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 14:32:22 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 15:37:44 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 22:27:46 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_calloc(size_t count, size_t size)
 
 	i = 0;
 	ptr = malloc(size * count);
+	if (ptr == NULL)
+		return (NULL);
 	while (i < size * count)
 	{
 		((char *)ptr)[i] = '\0';

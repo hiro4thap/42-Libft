@@ -6,13 +6,13 @@
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:30:02 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 12:23:24 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 23:00:16 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_arrlen(const char *str, char c)
+static int	ft_cnt_wrds(const char *str, char c)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ static int	ft_wrdlen(const char *str, char c)
 	int	i;
 
 	i = 0;
-	while (str[i] && *str != c)
+	while (str[i] && str[i] != c)
 		i++;
 	return (i);
 }
@@ -57,24 +57,28 @@ static char	*ft_get_word(const char *src, char c)
 	return (ptr);
 }
 
-char	**ft_split(char const *str, char c)
+char	**ft_split(char const *s, char c)
 {
-	char	**parr;
+	char	**strs;
 	int		i;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
-	parr = malloc(sizeof(char *) * (ft_arrlen(str, c) + 1));
-	while (*str)
+	strs = malloc(sizeof(char *) * (ft_cnt_wrds(s, c) + 1));
+	if (strs == NULL)
+		return (NULL);
+	while (*s)
 	{
-		if (*str != c)
+		if (*s != c)
 		{
-			parr[i] = ft_get_word(str, c);
-			str += ft_wrdlen(parr[i], c);
+			strs[i] = ft_get_word(s, c);
+			s += ft_wrdlen(strs[i], c);
 			i++;
 		}
 		else
-			str++;
+			s++;
 	}
-	parr[i] = 0;
-	return (parr);
+	strs[i] = 0;
+	return (strs);
 }

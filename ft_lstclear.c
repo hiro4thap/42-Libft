@@ -6,7 +6,7 @@
 /*   By: hiono <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 20:30:27 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 20:40:18 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 20:52:47 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	if (lst == NULL || del == NULL)
 		return ;
 	tmp = NULL;
-	while (tmp->next)
+	while (*lst)
 	{
 		tmp = (*lst)->next;
 		ft_lstdelone(*lst, del);

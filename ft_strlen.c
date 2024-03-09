@@ -6,16 +6,16 @@
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:20:25 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 15:12:37 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 20:56:50 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int		i;
-	char	*ptr;
+	int			i;
+	const char	*ptr;
 
 	i = 0;
 	ptr = str;

@@ -30,7 +30,7 @@ RM  = rm -f
 
 AR = ar rcs
 
-all:$(NAME) clean
+all:$(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)

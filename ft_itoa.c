@@ -6,7 +6,7 @@
 /*   By: hiono <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:41:58 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 12:17:06 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 22:34:14 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,16 @@ char	*ft_itoa(int n)
 	if (n == 0)
 	{
 		ptr = malloc (2);
+		if (ptr == NULL)
+			return (NULL);
 		ptr[0] = '0';
 		ptr[1] = '\0';
 		return (ptr);
 	}
 	l = ft_getlen(n);
 	ptr = malloc(sizeof(char) * (l + 1));
+	if (ptr == NULL)
+		return (NULL);
 	ft_insert(ptr, n);
 	ft_rev(ptr, l);
 	return (ptr);

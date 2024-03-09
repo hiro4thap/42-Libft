@@ -6,13 +6,13 @@
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 09:31:52 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 17:55:41 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 23:18:41 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	pn;
 	int	res;

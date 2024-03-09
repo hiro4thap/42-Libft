@@ -6,7 +6,7 @@
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:39:26 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 12:23:24 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 21:10:34 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*cpy_s;
 	size_t			l;
 	char			*ptr;
 	unsigned int	i;
 
-	cpy_s = (char *)s;
-	l = ft_strlen(cpy_s);
+	l = ft_strlen(s);
 	ptr = malloc(sizeof(char) * (l + 1));
 	if (ptr == NULL)
 		return (NULL);

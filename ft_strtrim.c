@@ -6,7 +6,7 @@
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 09:58:44 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 17:56:33 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 21:12:54 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,11 @@ static int	ft_in_set(const char *str, char c)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*cpy_s1;
 	char	*ptr;
 	size_t	len;
 	size_t	i;
 
-	cpy_s1 = (char *)s1;
-	len = ft_strlen(cpy_s1);
+	len = ft_strlen(s1);
 	i = 0;
 	while (0 < len && ft_in_set(set, *s1))
 	{

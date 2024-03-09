@@ -6,7 +6,7 @@
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 13:05:01 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 15:32:18 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 17:40:19 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*str;
+	unsigned char	uc;
 
 	str = (unsigned char *)s;
+	uc = (unsigned char)c;
 	while (n > 0)
 	{
-		if (*str == c)
+		if (*str == uc)
 			return (str);
 		str++;
 		n--;

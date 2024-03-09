@@ -6,7 +6,7 @@
 /*   By: hiono <hiono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 12:01:26 by hiono             #+#    #+#             */
-/*   Updated: 2024/03/08 12:23:24 by hiono            ###   ########.fr       */
+/*   Updated: 2024/03/09 21:12:08 by hiono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*cpy_s;
-	char	*str;
-	int		l;
+	char		cc;
+	const char	*str;
+	int			l;
 
-	cpy_s = (char *)s;
-	l = ft_strlen(cpy_s);
-	str = cpy_s + l - 1;
-	while (l > 0)
+	cc = (char)c;
+	l = ft_strlen(s);
+	str = s + l;
+	while (l >= 0)
 	{
-		if (*str == c)
-			return (str);
+		if (*str == cc)
+			return ((char *)str);
 		str--;
 		l--;
 	}
